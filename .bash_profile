@@ -31,3 +31,5 @@ export NVM_DIR="$HOME/.nvm"
 export PS1='\[\e[1;31m\]\u\[\e[m\] \[\e[1;34m\]\w\[\e[m\]$(parse_git_branch)\[\e[1;36m\] >\[\e[m\] '
 export CLICOLOR=1;
 export LSCOLORS=exfxcxdxbxegedabagacad;
+export HISTSIZE=10000
+export HISEFILESIZE=10000
