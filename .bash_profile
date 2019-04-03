@@ -6,7 +6,7 @@ alias di='docker images'
 alias dip='docker image prune'
 
 function gcm(){
-	git commit -m $1
+	git commit -m "$@"
 }
 
 function dc(){
