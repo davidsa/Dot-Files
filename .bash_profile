@@ -1,8 +1,13 @@
 alias gs='git status'
+alias ga='git add .'
 alias ws='cd /Users/davidsttivend/workspace'
 alias dps='docker ps -a'
 alias di='docker images'
 alias dip='docker image prune'
+
+function gcm(){
+	git commit -m $1
+}
 
 function dc(){
 	docker-compose $@
