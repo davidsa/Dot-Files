@@ -10,6 +10,7 @@ set laststatus=2
 set hidden
 set number
 set completeopt-=preview
+set clipboard=unnamedplus,unnamed
 
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=/usr/local/opt/fzf
@@ -44,6 +45,7 @@ Plugin 'Valloric/YouCompleteMe'
 Plugin 'joshdick/onedark.vim'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround'
+Plugin 'mileszs/ack.vim'
 
 call vundle#end()            " required
 
@@ -59,6 +61,7 @@ let g:lightline = {
   \ }
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '~'
+let g:NERDTreeNodeDelimiter = "\u00a0"
 let g:ycm_add_preview_to_completeopt = 0
 
 " --------- Leader ---------
@@ -68,10 +71,13 @@ let mapleader = "\<Space>"
 " ---------- Mapping ---------
 
 map ; :Files<CR>
-nnoremap <C-o> :NERDTreeToggle<CR> "toggle NERDTree
+map <C-o> :NERDTreeToggle<CR> 
 
 nnoremap <CR> :nohlsearch<cr>
 " window switching
+nnoremap <leader>w <c-w>w
+nnoremap <leader>b :bp<CR>
+
 nnoremap <c-h> <c-w>h 
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k

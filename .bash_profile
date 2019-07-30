@@ -1,5 +1,12 @@
+export ANDROID_HOME=$HOME/Library/Android/sdk
+export PATH=$PATH:$ANDROID_HOME/emulator
+export PATH=$PATH:$ANDROID_HOME/tools
+export PATH=$PATH:$ANDROID_HOME/tools/bin
+export PATH=$PATH:$ANDROID_HOME/platform-tools
+
 alias gs='git status'
 alias ga='git add .'
+alias gp='git push'
 alias ws='cd /Users/davidsttivend/workspace'
 alias dps='docker ps -a'
 alias di='docker images'
