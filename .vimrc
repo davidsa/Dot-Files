@@ -70,7 +70,6 @@ let mapleader = "\<Space>"
 
 " ---------- Mapping ---------
 
-map ; :Files<CR>
 map <C-o> :NERDTreeToggle<CR> 
 
 nnoremap <CR> :nohlsearch<cr>
