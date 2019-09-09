@@ -8,7 +8,6 @@ set completeopt-=preview
 set clipboard=unnamedplus,unnamed
 set splitright 
 set splitbelow 
-set autochdir
 set autoindent
 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -68,8 +67,10 @@ let mapleader = "\<Space>"
 
 " ---------- Mapping ---------
 
-map <C-o> :NERDTreeToggle<CR> 
-map <leader>o :GFiles<CR>
+nnoremap <C-o> :NERDTreeToggle<CR> 
+nnoremap <C-f> :NERDTreeFind<CR> 
+nnoremap <leader>o :GFiles<CR>
+nnoremap <leader>f :Ag 
 
 nnoremap <CR> :nohlsearch<cr>
 " window switching
@@ -84,7 +85,7 @@ nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
-
+cnoremap <expr> %% getcmdtype() ==# ':' ? fnameescape(expand('%:h')) . '/' : '%%'
 
 " ---------- Theme ----------
 
