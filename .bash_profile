@@ -9,13 +9,18 @@ source ~/git-completion.bash
 
 alias gs='git status'
 alias ga='git add .'
+alias gb='git branch'
 alias gp='git push'
+alias gl='git pull'
+alias gdb='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
+
 alias ws='cd /Users/davidsttivend/workspace'
 alias dps='docker ps -a'
 alias di='docker images'
 alias dip='docker image prune'
+
 alias evimrc='vim ~/dotfiles/.vimrc'
-alias gdb='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
+alias ebash='vim ~/dotfiles/.bash_profile'
 
 function gcm(){
 	git commit -m "$@"
