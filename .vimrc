@@ -9,6 +9,7 @@ set clipboard=unnamedplus,unnamed
 set splitright 
 set splitbelow 
 set autoindent
+set shiftwidth=2
 
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=/usr/local/opt/fzf
@@ -45,9 +46,11 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'tpope/vim-surround'
 Plugin 'mileszs/ack.vim'
 Plugin 'cohama/lexima.vim'
-Plugin 'zxqfl/tabnine-vim'
 Plugin 'mattn/emmet-vim'
-
+Plugin 'zivyangll/git-blame.vim'
+Plugin 'ycm-core/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+ 
 call vundle#end()            " required
 
 " ---------- let ----------
@@ -58,9 +61,13 @@ let g:lightline = {
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '~'
 let g:NERDTreeNodeDelimiter = "\u00a0"
+let g:NERDTreeWinSize = 40 
 let g:ycm_add_preview_to_completeopt = 0
-
-
+let g:UltiSnipsExpandTrigger='<c-j>'
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+let g:UltiSnipsEditSplit="vertical"
+let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
 " --------- Leader ---------
 
 let mapleader = "\<Space>"
@@ -71,7 +78,8 @@ nnoremap <C-o> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR> 
 nnoremap <leader>o :GFiles<CR>
 nnoremap <leader>f :Ag 
-
+nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
+nnoremap <silent> <Leader>* :Ag <C-R><C-W><CR>
 nnoremap <CR> :nohlsearch<cr>
 " window switching
 nnoremap <leader>w <c-w>w
