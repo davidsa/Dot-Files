@@ -50,14 +50,22 @@ Plugin 'mattn/emmet-vim'
 Plugin 'zivyangll/git-blame.vim'
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'SirVer/ultisnips'
+Plugin 'Ivo-Donchev/vim-react-goto-definition'
+Plugin 'itchyny/vim-gitbranch'
  
 call vundle#end()            " required
 
 " ---------- let ----------
-
 let g:lightline = {
-  \ 'colorscheme': 'onedark',
-  \ }
+      \ 'colorscheme': 'onedark',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'gitbranch#name'
+      \ },
+      \ }
 let g:NERDTreeDirArrowExpandable = '+'
 let g:NERDTreeDirArrowCollapsible = '~'
 let g:NERDTreeNodeDelimiter = "\u00a0"
@@ -81,6 +89,7 @@ nnoremap <leader>f :Ag
 nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
 nnoremap <silent> <Leader>* :Ag <C-R><C-W><CR>
 nnoremap <CR> :nohlsearch<cr>
+noremap <leader>g :call ReactGotoDef()<CR>
 " window switching
 nnoremap <leader>w <c-w>w
 nnoremap <leader>N :bp<CR>
@@ -101,4 +110,3 @@ syntax on
 colorscheme onedark
 
 call lexima#add_rule({'char': "'", 'input_after': "'", 'filetype': 'javascript'})
-
