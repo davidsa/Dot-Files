@@ -47,11 +47,14 @@ Plugin 'tpope/vim-surround'
 Plugin 'mileszs/ack.vim'
 Plugin 'cohama/lexima.vim'
 Plugin 'mattn/emmet-vim'
-Plugin 'zivyangll/git-blame.vim'
 Plugin 'ycm-core/YouCompleteMe'
+Plugin 'zivyangll/git-blame.vim'
 Plugin 'SirVer/ultisnips'
 Plugin 'Ivo-Donchev/vim-react-goto-definition'
 Plugin 'itchyny/vim-gitbranch'
+Plugin 'tpope/vim-fugitive'
+Plugin 'dense-analysis/ale'
+Plugin 'ternjs/tern_for_vim'
  
 call vundle#end()            " required
 
@@ -66,8 +69,8 @@ let g:lightline = {
       \   'gitbranch': 'gitbranch#name'
       \ },
       \ }
-let g:NERDTreeDirArrowExpandable = '+'
-let g:NERDTreeDirArrowCollapsible = '~'
+let g:NERDTreeDirArrowExpandable = '▸'
+let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeNodeDelimiter = "\u00a0"
 let g:NERDTreeWinSize = 40 
 let g:ycm_add_preview_to_completeopt = 0
@@ -76,6 +79,12 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
+let g:user_emmet_settings = {
+\  'javascript' : {
+\      'extends' : 'jsx',
+\  },
+\}
+
 " --------- Leader ---------
 
 let mapleader = "\<Space>"
