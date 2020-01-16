@@ -1,3 +1,4 @@
+set encoding=UTF-8
 set incsearch
 set ignorecase
 set smartcase
@@ -10,6 +11,10 @@ set splitright
 set splitbelow 
 set autoindent
 set shiftwidth=2
+set conceallevel=0
+set relativenumber
+set guifont=DejaVuSansMono_Nerd_Font:h16
+set backspace=indent,eol,start
 
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=/usr/local/opt/fzf
@@ -55,6 +60,8 @@ Plugin 'itchyny/vim-gitbranch'
 Plugin 'tpope/vim-fugitive'
 Plugin 'dense-analysis/ale'
 Plugin 'ternjs/tern_for_vim'
+Plugin 'ap/vim-css-color'
+Plugin 'ryanoasis/vim-devicons'
  
 call vundle#end()            " required
 
@@ -72,6 +79,7 @@ let g:lightline = {
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeNodeDelimiter = "\u00a0"
+let NERDTreeShowHidden=1
 let g:NERDTreeWinSize = 40 
 let g:ycm_add_preview_to_completeopt = 0
 let g:UltiSnipsExpandTrigger='<c-j>'
@@ -84,7 +92,9 @@ let g:user_emmet_settings = {
 \      'extends' : 'jsx',
 \  },
 \}
+let g:prettier#autoformat = 0
 
+autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 " --------- Leader ---------
 
 let mapleader = "\<Space>"
