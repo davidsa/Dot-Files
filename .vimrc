@@ -15,6 +15,7 @@ set conceallevel=0
 set relativenumber
 set guifont=DejaVuSansMono_Nerd_Font:h16
 set backspace=indent,eol,start
+set conceallevel=0
 
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=/usr/local/opt/fzf
