@@ -10,6 +10,9 @@ set clipboard=unnamedplus,unnamed
 set splitright 
 set splitbelow 
 set autoindent
+set expandtab
+set tabstop=2
+set softtabstop=2
 set shiftwidth=2
 set conceallevel=0
 set relativenumber
@@ -63,7 +66,7 @@ Plugin 'dense-analysis/ale'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'ap/vim-css-color'
 Plugin 'ryanoasis/vim-devicons'
- 
+
 call vundle#end()            " required
 
 " ---------- let ----------
@@ -82,7 +85,6 @@ let g:NERDTreeDirArrowCollapsible = '▾'
 let g:NERDTreeNodeDelimiter = "\u00a0"
 let NERDTreeShowHidden=1
 let g:NERDTreeWinSize = 40 
-let g:ycm_add_preview_to_completeopt = 0
 let g:UltiSnipsExpandTrigger='<c-j>'
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
@@ -94,6 +96,8 @@ let g:user_emmet_settings = {
 \  },
 \}
 let g:prettier#autoformat = 0
+let g:deoplete#enable_at_startup = 1
+let g:ale_fixers = ['prettier', 'eslint']
 
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 " --------- Leader ---------
@@ -106,7 +110,7 @@ nnoremap <C-o> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR> 
 nnoremap <leader>o :GFiles<CR>
 nnoremap <leader>f :Ag 
-nnoremap <Leader>s :<C-u>call gitblame#echo()<CR>
+nnoremap <leader>s :<C-u>call gitblame#echo()<CR>
 nnoremap <silent> <Leader>* :Ag <C-R><C-W><CR>
 nnoremap <CR> :nohlsearch<cr>
 noremap <leader>g :call ReactGotoDef()<CR>
@@ -124,6 +128,9 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 cnoremap <expr> %% getcmdtype() ==# ':' ? fnameescape(expand('%:h')) . '/' : '%%'
 
+" ---------- Folds ----------
+
+nnoremap <leader>c zfiB
 " ---------- Theme ----------
 
 syntax on

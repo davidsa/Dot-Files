@@ -6,6 +6,13 @@ set PATH $ANDROID_HOME/tools $PATH
 set PATH $ANDROID_HOME/tools/bin $PATH
 set PATH $ANDROID_HOME/platform-tools $PATH
 
+set -x WORKSPACE /Users/davidsttivend/workspace
+set -x AWSUTILDIR sl_awsutil
+set -x SSHTAG_USER david.sttivend
+set -x SSHTAG_KEY ~/.ssh/id_rsa
+set -x AWS_ACCESS_KEY `cat $WORKSPACE/$AWSUTILDIR/aws_keys/dev/readonly_access`
+set -x AWS_SECRET_KEY `cat $WORKSPACE/$AWSUTILDIR/aws_keys/dev/readonly_secret`
+
 set SPACEFISH_USER_SHOW always
 set SPACEFISH_PACKAGE_SHOW false	
 set SPACEFISH_DIR_PREFIX ""
@@ -21,6 +28,7 @@ alias gb='git branch'
 alias gp='git push'
 alias gl='git pull'
 alias gdb='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
+alias sshtag $WORKSPACE/$AWSUTILDIR/sshtag.sh
 
 alias ws='cd ~/workspace'
 alias dps='docker ps -a'
@@ -31,7 +39,7 @@ alias evimrc='vim ~/dotfiles/.vimrc'
 alias ebash='vim ~/dotfiles/.bash_profile'
 alias efish='vim ~/.config/fish/config.fish'
 
-function gc
+function gcm
   git commit -m "$argv"
 end
 
