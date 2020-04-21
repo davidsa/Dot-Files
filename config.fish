@@ -31,6 +31,7 @@ alias gdb='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch 
 alias sshtag $WORKSPACE/$AWSUTILDIR/sshtag.sh
 
 alias ws='cd ~/workspace'
+alias dotfiles='cd ~/dotfiles'
 alias dps='docker ps -a'
 alias di='docker images'
 alias dip='docker image prune'

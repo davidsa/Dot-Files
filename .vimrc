@@ -64,7 +64,7 @@ Plugin 'dense-analysis/ale'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'ap/vim-css-color'
 Plugin 'ryanoasis/vim-devicons'
-Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'yggdroot/indentline'
 
 call vundle#end()            " required
 
@@ -98,12 +98,14 @@ let g:prettier#autoformat = 0
 let g:deoplete#enable_at_startup = 1
 let g:ale_fixers = ['prettier', 'eslint']
 let g:vim_json_syntax_conceal = 0
-let g:indent_guides_enable_on_vim_startup = 1
+
+let g:indentLine_char = 'c'
+ let g:indentLine_char_list = ['⎸']
 
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 " --------- Leader ---------
 
-let mapleader = "\<Space>"
+    let mapleader = "\<Space>"
 
 " ---------- Mapping ---------
 
