@@ -14,11 +14,9 @@ set expandtab
 set tabstop=2
 set softtabstop=2
 set shiftwidth=2
-set conceallevel=0
 set relativenumber
 set guifont=DejaVuSansMono_Nerd_Font:h16
 set backspace=indent,eol,start
-set conceallevel=0
 
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=/usr/local/opt/fzf
@@ -66,6 +64,7 @@ Plugin 'dense-analysis/ale'
 Plugin 'ternjs/tern_for_vim'
 Plugin 'ap/vim-css-color'
 Plugin 'ryanoasis/vim-devicons'
+Plugin 'nathanaelkane/vim-indent-guides'
 
 call vundle#end()            " required
 
@@ -98,6 +97,8 @@ let g:user_emmet_settings = {
 let g:prettier#autoformat = 0
 let g:deoplete#enable_at_startup = 1
 let g:ale_fixers = ['prettier', 'eslint']
+let g:vim_json_syntax_conceal = 0
+let g:indent_guides_enable_on_vim_startup = 1
 
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 " --------- Leader ---------
