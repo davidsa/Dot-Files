@@ -89,6 +89,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
+let g:UltiSnipsSnippetDirectories=["/Users/davidsttivend/.vim/UltiSnips", "UltiSnips"]
 let g:user_emmet_settings = {
 \  'javascript' : {
 \      'extends' : 'jsx',
@@ -96,18 +97,22 @@ let g:user_emmet_settings = {
 \}
 let g:prettier#autoformat = 0
 let g:deoplete#enable_at_startup = 1
-let g:ale_fixers = ['prettier', 'eslint']
+let g:ale_fixers = {'javascript': ['eslint', 'prettier']}
+let g:ale_fix_on_save = 1
 let g:vim_json_syntax_conceal = 0
 
 let g:indentLine_char = 'c'
- let g:indentLine_char_list = ['⎸']
+let g:indentLine_char_list = ['⎸']
 
-autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 " --------- Leader ---------
 
     let mapleader = "\<Space>"
 
-" ---------- Mapping ---------
+"" NERDTress File highlighting
+
+highlight NERDTreeCWD ctermfg=white
+"---------- Mapping ---------
 
 nnoremap <C-o> :NERDTreeToggle<CR> 
 nnoremap <C-f> :NERDTreeFind<CR> 

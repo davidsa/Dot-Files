@@ -1,4 +1,6 @@
 source ~/git-completion.fish
+source ~/.local/share/icons-in-terminal/icons.fish
+
 set -x LC_ALL en_US.UTF-8
 set ANDROID_HOME $HOME/Library/Android/sdk
 set PATH $ANDROID_HOME/emulator $PATH
@@ -22,6 +24,7 @@ set SPACEFISH_GIT_BRANCH_COLOR af87ff
 set SPACEFISH_NODE_SHOW false
 set SPACEFISH_GIT_PREFIX ""
 
+alias ls='colorls'
 alias gs='git status'
 alias ga='git add .'
 alias gb='git branch'
