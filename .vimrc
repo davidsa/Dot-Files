@@ -1,4 +1,4 @@
-set encoding=UTF-8
+
 set incsearch
 set ignorecase
 set smartcase
@@ -27,46 +27,40 @@ filetype plugin indent on
 
 " ---------- plugins ----------
  
-call vundle#begin()
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
+Plug 'itchyny/lightline.vim'
+Plug 'sheerun/vim-polyglot'
+Plug 'vim-syntastic/syntastic'
+Plug 'pangloss/vim-javascript'
+Plug 'mxw/vim-jsx'
+Plug 'prettier/vim-prettier'
+Plug 'moll/vim-node'
+Plug 'junegunn/fzf.vim'
+Plug 'terryma/vim-multiple-cursors'
+Plug 'scrooloose/nerdtree'
+Plug 'editorconfig/editorconfig-vim'
+Plug 'airblade/vim-gitgutter'
+Plug 'leafgarland/typescript-vim'
+Plug 'joshdick/onedark.vim'
+Plug 'NovaDev94/lightline-onedark'
+Plug 'scrooloose/nerdcommenter'
+Plug 'tpope/vim-surround'
+Plug 'mileszs/ack.vim'
+Plug 'cohama/lexima.vim'
+Plug 'mattn/emmet-vim'
+Plug 'zivyangll/git-blame.vim'
+Plug 'SirVer/ultisnips'
+Plug 'Ivo-Donchev/vim-react-goto-definition'
+Plug 'itchyny/vim-gitbranch'
+Plug 'tpope/vim-fugitive'
+Plug 'dense-analysis/ale'
+Plug 'ap/vim-css-color'
+Plug 'ryanoasis/vim-devicons'
+Plug 'yggdroot/indentline'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" Plugins
-
-Plugin 'itchyny/lightline.vim'
-Plugin 'sheerun/vim-polyglot'
-Plugin 'vim-syntastic/syntastic'
-Plugin 'pangloss/vim-javascript'
-Plugin 'mxw/vim-jsx'
-Plugin 'prettier/vim-prettier'
-Plugin 'moll/vim-node'
-Plugin 'sjbach/lusty'
-Plugin 'junegunn/fzf.vim'
-Plugin 'terryma/vim-multiple-cursors'
-Plugin 'scrooloose/nerdtree'
-Plugin 'editorconfig/editorconfig-vim'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'dracula/vim'
-Plugin 'joshdick/onedark.vim'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'tpope/vim-surround'
-Plugin 'mileszs/ack.vim'
-Plugin 'cohama/lexima.vim'
-Plugin 'mattn/emmet-vim'
-Plugin 'ycm-core/YouCompleteMe'
-Plugin 'zivyangll/git-blame.vim'
-Plugin 'SirVer/ultisnips'
-Plugin 'Ivo-Donchev/vim-react-goto-definition'
-Plugin 'itchyny/vim-gitbranch'
-Plugin 'tpope/vim-fugitive'
-Plugin 'dense-analysis/ale'
-Plugin 'ternjs/tern_for_vim'
-Plugin 'ap/vim-css-color'
-Plugin 'ryanoasis/vim-devicons'
-Plugin 'yggdroot/indentline'
-
-call vundle#end()            " required
+call plug#end()
 
 " ---------- let ----------
 let g:lightline = {
@@ -95,23 +89,25 @@ let g:user_emmet_settings = {
 \      'extends' : 'jsx',
 \  },
 \}
-let g:prettier#autoformat = 0
-let g:deoplete#enable_at_startup = 1
+let g:prettier#autoformat = 1
 let g:ale_fixers = {'javascript': ['eslint', 'prettier']}
 let g:ale_fix_on_save = 1
 let g:vim_json_syntax_conceal = 0
 
 let g:indentLine_char = 'c'
 let g:indentLine_char_list = ['⎸']
+let g:lexima_enable_newline_rules = 1
 
-" autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+"autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
+
 " --------- Leader ---------
 
-    let mapleader = "\<Space>"
+let mapleader = "\<Space>"
 
-"" NERDTress File highlighting
+"---------- NerdTree ---------
 
 highlight NERDTreeCWD ctermfg=white
+
 "---------- Mapping ---------
 
 nnoremap <C-o> :NERDTreeToggle<CR> 
@@ -139,9 +135,24 @@ cnoremap <expr> %% getcmdtype() ==# ':' ? fnameescape(expand('%:h')) . '/' : '%%
 " ---------- Folds ----------
 
 nnoremap <leader>c zfiB
+
 " ---------- Theme ----------
 
 syntax on
 colorscheme onedark
 
+" ---------- Calls ----------
+
 call lexima#add_rule({'char': "'", 'input_after': "'", 'filetype': 'javascript'})
+
+" use <tab> for trigger completion and navigate to the next complete item
+function! s:check_back_space() abort
+  let col = col('.') - 1
+  return !col || getline('.')[col - 1]  =~ '\s'
+endfunction
+
+inoremap <silent><expr> <Tab>
+      \ pumvisible() ? "\<C-n>" :
+      \ <SID>check_back_space() ? "\<Tab>" :
+      \ coc#refresh()
+
