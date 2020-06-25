@@ -1,4 +1,3 @@
-
 set incsearch
 set ignorecase
 set smartcase
@@ -47,7 +46,6 @@ Plug 'NovaDev94/lightline-onedark'
 Plug 'scrooloose/nerdcommenter'
 Plug 'tpope/vim-surround'
 Plug 'mileszs/ack.vim'
-Plug 'cohama/lexima.vim'
 Plug 'mattn/emmet-vim'
 Plug 'zivyangll/git-blame.vim'
 Plug 'SirVer/ultisnips'
@@ -59,6 +57,8 @@ Plug 'ap/vim-css-color'
 Plug 'ryanoasis/vim-devicons'
 Plug 'yggdroot/indentline'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'cohama/lexima.vim'
+Plug 'christoomey/vim-tmux-navigator'
 
 call plug#end()
 
@@ -126,10 +126,10 @@ nnoremap <leader>n :bn<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>d :bd<CR>
 
-nnoremap <c-h> <c-w>h 
-nnoremap <c-j> <c-w>j
-nnoremap <c-k> <c-w>k
-nnoremap <c-l> <c-w>l
+"nnoremap <c-h> <c-w>h 
+"nnoremap <c-j> <c-w>j
+"nnoremap <c-k> <c-w>k
+"nnoremap <c-l> <c-w>l
 cnoremap <expr> %% getcmdtype() ==# ':' ? fnameescape(expand('%:h')) . '/' : '%%'
 
 " ---------- Folds ----------
