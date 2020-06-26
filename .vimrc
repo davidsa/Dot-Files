@@ -16,6 +16,8 @@ set shiftwidth=2
 set relativenumber
 set guifont=DejaVuSansMono_Nerd_Font:h16
 set backspace=indent,eol,start
+set wildmenu
+set wildmode=list:longest,full
 
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=/usr/local/opt/fzf
@@ -59,6 +61,7 @@ Plug 'yggdroot/indentline'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'cohama/lexima.vim'
 Plug 'christoomey/vim-tmux-navigator'
+Plug 'kshenoy/vim-signature'
 
 call plug#end()
 
