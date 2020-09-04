@@ -21,7 +21,7 @@ set SPACEFISH_DIR_PREFIX ""
 set SPACEFISH_PROMPT_SEPARATE_LINE false
 set SPACEFISH_USER_COLOR ff5f5f
 set SPACEFISH_GIT_BRANCH_COLOR af87ff
-set SPACEFISH_NODE_SHOW false
+set SPACEFISH_DOCKER_SHOW false
 set SPACEFISH_GIT_PREFIX ""
 
 alias ls='colorls'
@@ -32,6 +32,7 @@ alias gp='git push'
 alias gl='git pull'
 alias gdb='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 alias sshtag $WORKSPACE/$AWSUTILDIR/sshtag.sh
+alias tls='tmux ls'
 
 alias ws='cd ~/workspace'
 alias dotfiles='cd ~/dotfiles'
@@ -42,6 +43,10 @@ alias dip='docker image prune'
 alias evimrc='vim ~/dotfiles/.vimrc'
 alias ebash='vim ~/dotfiles/.bash_profile'
 alias efish='vim ~/.config/fish/config.fish'
+
+function t
+  tmux $argv
+end
 
 function gcm
   git commit -m "$argv"
@@ -61,5 +66,17 @@ end
 
 function gc
   git checkout $argv
+end
+
+function __nvm_use_on_cd --on-variable PWD --description 'Use Node.js version specified by project'
+    if test -e .nvmrc
+       nvm use
+       return
+    end
+    
+    if test -e .node-version
+       nvm use (cat .node-version)
+       return
+    end
 end
 

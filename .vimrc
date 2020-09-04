@@ -18,6 +18,7 @@ set guifont=DejaVuSansMono_Nerd_Font:h16
 set backspace=indent,eol,start
 set wildmenu
 set wildmode=list:longest,full
+set indentexpr=
 
 set rtp+=~/.vim/bundle/Vundle.vim
 set rtp+=/usr/local/opt/fzf
@@ -59,9 +60,10 @@ Plug 'ap/vim-css-color'
 Plug 'ryanoasis/vim-devicons'
 Plug 'yggdroot/indentline'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'cohama/lexima.vim'
+Plug 'jiangmiao/auto-pairs'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'kshenoy/vim-signature'
+Plug 'ludovicchabant/vim-gutentags'
 
 call plug#end()
 
@@ -93,13 +95,13 @@ let g:user_emmet_settings = {
 \  },
 \}
 let g:prettier#autoformat = 1
-let g:ale_fixers = {'javascript': ['eslint', 'prettier']}
+let g:ale_fixers = {'javascript': ['eslint']}
 let g:ale_fix_on_save = 1
 let g:vim_json_syntax_conceal = 0
 
 let g:indentLine_char = 'c'
 let g:indentLine_char_list = ['⎸']
-let g:lexima_enable_newline_rules = 1
+"let g:lexima_enable_newline_rules = 1
 
 "autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html PrettierAsync
 
@@ -113,7 +115,7 @@ highlight NERDTreeCWD ctermfg=white
 
 "---------- Mapping ---------
 
-nnoremap <C-o> :NERDTreeToggle<CR> 
+nnoremap <C-p> :NERDTreeToggle<CR> 
 nnoremap <C-f> :NERDTreeFind<CR> 
 nnoremap <leader>o :GFiles<CR>
 nnoremap <leader>f :Ag 
@@ -146,7 +148,7 @@ colorscheme onedark
 
 " ---------- Calls ----------
 
-call lexima#add_rule({'char': "'", 'input_after': "'", 'filetype': 'javascript'})
+"call lexima#add_rule({'char': "'", 'input_after': "'", 'filetype': 'javascript'})
 
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort
