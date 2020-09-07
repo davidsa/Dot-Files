@@ -1,0 +1,86 @@
+snippet cl "console.log" i
+console.log($1)
+endsnippet
+
+snippet arf "arrow function" i
+($1) => {
+  $2
+} 
+endsnippet
+
+snippet iaf "inline arrow function" i
+($1) =>  $2
+endsnippet
+
+snippet imp "import from" b
+import $2 from '$1'
+endsnippet
+
+snippet dc "destruct const" b
+const {$2} = $1
+endsnippet
+
+snippet dca "destruct array" b
+const [ $1 ] = $2
+endsnippet
+
+snippet tc "try catch" b
+try {
+  $1
+}catch(error){
+  $2
+}
+endsnippet
+
+snippet des "describe" b
+describe('$1',() => {
+  $2
+})
+endsnippet
+
+snippet it "describe" b
+it('$1',() => {
+  $2
+})
+endsnippet
+
+snippet be "before each" b
+beforeEach(() => {
+  $1
+})
+endsnippet
+
+snippet ae "after each" b
+afterEach(() => {
+  $1
+})
+endsnippet
+
+snippet expa "export all" b
+export * from '$1'
+endsnippet
+
+snippet exp "export all" b
+expect($1).$2($3)
+endsnippet
+
+snippet rfc "React functional component" b
+import React from 'react';
+
+export const $1 = () => {
+  return <div>$2</div>;
+};
+endsnippet
+
+snippet attr "attribute"
+$1={$2}
+endsnippet
+
+snippet cn "className"
+className={$2}
+endsnippet
+
+snippet req "require" b
+const $1=require('$1')
+endsnippet
+ 
