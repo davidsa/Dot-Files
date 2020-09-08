@@ -1,4 +1,4 @@
-source ~/git-completion.fish
+source ~/workspace/Dot-Files/git-completion.fish
 source ~/.local/share/icons-in-terminal/icons.fish
 
 set -x LC_ALL en_US.UTF-8
