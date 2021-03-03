@@ -9,7 +9,7 @@ snippet arf "arrow function" i
 endsnippet
 
 snippet iaf "inline arrow function" i
-($1) =>  $2
+($1) => $2
 endsnippet
 
 snippet imp "import from" b
@@ -21,7 +21,7 @@ const {$2} = $1
 endsnippet
 
 snippet dca "destruct array" b
-const [ $1 ] = $2
+const [ $2 ] = $1
 endsnippet
 
 snippet tc "try catch" b
@@ -60,6 +60,10 @@ snippet expa "export all" b
 export * from '$1'
 endsnippet
 
+snippet expd "export default" b
+export { default } from './$1'
+endsnippet
+
 snippet exp "export all" b
 expect($1).$2($3)
 endsnippet
@@ -70,6 +74,17 @@ import React from 'react';
 export const $1 = () => {
   return <div>$2</div>;
 };
+endsnippet
+
+snippet rcc "React class component" b
+import React, { PureComponent } from 'react';
+
+class $1 extends PureComponent {
+
+  render(){
+    return $2
+  }
+}
 endsnippet
 
 snippet attr "attribute"
