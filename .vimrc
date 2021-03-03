@@ -19,6 +19,9 @@ set backspace=indent,eol,start
 set wildmenu
 set wildmode=list:longest,full
 set shell=/bin/bash
+set nowrap
+set nohlsearch
+set scrolloff=8
 
 set rtp+=/usr/local/opt/fzf
 
@@ -135,7 +138,6 @@ nnoremap <leader>o :GFiles<CR>
 nnoremap <leader>f :Ag 
 vnoremap <leader>s :'<,'>sort<CR>
 nnoremap <silent> <Leader>* :Ag <C-R><C-W><CR>
-nnoremap <CR> :nohlsearch<cr>
 noremap <leader>g :call ReactGotoDef()<CR>
 " window switching
 nnoremap <leader>w <c-w>w
@@ -148,7 +150,8 @@ nnoremap <leader>x :bd<CR>
 
 cnoremap <expr> %% getcmdtype() ==# ':' ? fnameescape(expand('%:h')) . '/' : '%%'
 
-nnoremap <leader>G :GCheckou<CR>
+nnoremap <leader>G :GBranches<CR>
+nnoremap <leader>gs :G<CR>
 
 " ---------- Folds ----------
 
