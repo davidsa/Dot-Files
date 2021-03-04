@@ -51,7 +51,6 @@ Plug 'mileszs/ack.vim'
 Plug 'mattn/emmet-vim'
 Plug 'zivyangll/git-blame.vim'
 Plug 'SirVer/ultisnips'
-Plug 'Ivo-Donchev/vim-react-goto-definition'
 Plug 'itchyny/vim-gitbranch'
 Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
@@ -134,12 +133,18 @@ autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 
 nnoremap <C-p> :NERDTreeToggle<CR> 
 nnoremap <C-f> :NERDTreeFind<CR>zz
+vnoremap <leader>s :'<,'>sort<CR>
+" search
 nnoremap <leader>o :GFiles<CR>
 nnoremap <leader>f :Ag 
-vnoremap <leader>s :'<,'>sort<CR>
 nnoremap <silent> <Leader>* :Ag <C-R><C-W><CR>
-noremap <leader>g :call ReactGotoDef()<CR>
-" window switching
+" jumping
+noremap <leader>gd :call CocActionAsync('jumpDefinition')<CR>
+noremap <leader>gr :call CocActionAsync('jumpReferences')<CR>
+" git
+nnoremap <leader>G :GBranches<CR>
+nnoremap <leader>gs :G<CR>
+" buffer switching
 nnoremap <leader>w <c-w>w
 nnoremap <leader>N :bp<CR>
 nnoremap <leader>p :Prettier<CR>
@@ -150,8 +155,8 @@ nnoremap <leader>x :bd<CR>
 
 cnoremap <expr> %% getcmdtype() ==# ':' ? fnameescape(expand('%:h')) . '/' : '%%'
 
-nnoremap <leader>G :GBranches<CR>
-nnoremap <leader>gs :G<CR>
+nnoremap <leader>% :source ~/.vimrc<CR>
+
 
 " ---------- Folds ----------
 
