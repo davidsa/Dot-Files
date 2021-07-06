@@ -104,6 +104,7 @@ let g:user_emmet_settings = {
 \}
 " ---------- Prettier ----------
 let g:prettier#autoformat = 1
+
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.svg PrettierAsync
 " ---------- Ale ----------
 let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
