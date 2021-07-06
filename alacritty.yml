@@ -35,6 +35,11 @@ font:
     family: DejaVuSansMono Nerd Font
   size: 16
 
+window:
+  padding:
+    x: 10
+    y: 10
+
 draw_bold_text_with_bright_colors: true
 
 selection:
@@ -47,7 +52,7 @@ key_bindings:
   # (macOS only)
   - { key: Key0,   mods: Command, action: ResetFontSize    }
   - { key: Equals, mods: Command, action: IncreaseFontSize }
-  - { key: Add,    mods: Command, action: IncreaseFontSize }
+  - { key: Plus,    mods: Command, action: IncreaseFontSize }
   - { key: Minus,  mods: Command, action: DecreaseFontSize }
   - { key: K,      mods: Command, action: ClearHistory     }
   - { key: K,      mods: Command, chars: "\x0c"            }

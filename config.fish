@@ -22,8 +22,6 @@ set SPACEFISH_USER_COLOR F37F97
 set SPACEFISH_DIR_COLOR 79E6F3
 set SPACEFISH_GIT_STATUS_COLOR F37F97
 
-#alias ls='colorls'
-#alias l='colorls -1'
 alias l='ls -1'
 alias gs='git status'
 alias ga='git add .'
@@ -32,6 +30,8 @@ alias gp='git push'
 alias gl='git pull'
 alias gdb='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 alias tls='tmux ls'
+alias vim='nvim'
+alias cl='clear'
 
 alias ws='cd ~/workspace'
 alias dotfiles='cd ~/dotfiles'
