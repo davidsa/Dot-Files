@@ -30,7 +30,6 @@ alias gp='git push'
 alias gl='git pull'
 alias gdb='git branch --merged | egrep -v "(^\*|master|dev)" | xargs git branch -d'
 alias tls='tmux ls'
-alias vim='nvim'
 alias cl='clear'
 
 alias ws='cd ~/workspace'
