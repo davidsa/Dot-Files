@@ -61,7 +61,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'kshenoy/vim-signature'
-Plug 'ludovicchabant/vim-gutentags'
+"Plug 'ludovicchabant/vim-gutentags'
 Plug 'schickling/vim-bufonly'
 Plug 'Shougo/unite.vim'
 Plug 'devjoe/vim-codequery'
@@ -94,8 +94,8 @@ let g:UltiSnipsExpandTrigger='<c-j>'
 let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
-let g:UltiSnipsSnippetsDir="~/.vim/UltiSnips"
-let g:UltiSnipsSnippetDirectories=["/Users/davidsttivend/.vim/UltiSnips", "UltiSnips"]
+let g:UltiSnipsSnippetsDir="~/workspace/Dot-Files/UltiSnips"
+"let g:UltiSnipsSnippetDirectories=["/Users/davidsttivend/.vim/UltiSnips", "UltiSnips"]
 " ---------- Emmet ----------
 let g:user_emmet_settings = {
 \  'javascript' : {
@@ -106,6 +106,8 @@ let g:user_emmet_settings = {
 let g:prettier#autoformat = 1
 
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.svg PrettierAsync
+autocmd FileType javascript,javascriptreact,typescript,typescriptreact
+  \ UltiSnipsAddFiletypes javascript.javascriptreact.typescript.typescriptreact
 " ---------- Ale ----------
 let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
 let g:ale_linters = {'javascript': ['prettier', 'eslint']}
@@ -168,9 +170,11 @@ nnoremap <leader>c zfiB
 syntax on
 colorscheme onedark
 
-" ---------- Calls ----------
-
-"call lexima#add_rule({'char': "'", 'input_after': "'", 'filetype': 'javascript'})
+if exists('+termguicolors')
+  let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+  set termguicolors
+endif
 
 " use <tab> for trigger completion and navigate to the next complete item
 function! s:check_back_space() abort

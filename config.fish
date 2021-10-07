@@ -33,7 +33,7 @@ alias tls='tmux ls'
 alias cl='clear'
 
 alias ws='cd ~/workspace'
-alias dotfiles='cd ~/dotfiles'
+alias dotfiles='cd ~/workspace/Dot-Files'
 alias dps='docker ps -a'
 alias di='docker images'
 alias dip='docker image prune'
