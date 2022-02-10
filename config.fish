@@ -1,6 +1,8 @@
 source ~/workspace/Dot-Files/git-completion.fish
+source /usr/local/opt/asdf/libexec/asdf.fish
 
 set EDITOR "vim"
+set -U fish_greeting
 
 set -x LC_ALL en_US.UTF-8
 set ANDROID_HOME $HOME/Library/Android/sdk
@@ -16,6 +18,7 @@ set SPACEFISH_PROMPT_SEPARATE_LINE false
 set SPACEFISH_GIT_BRANCH_COLOR af87ff
 set SPACEFISH_DOCKER_SHOW false
 set SPACEFISH_GIT_PREFIX ""
+set SPACEFISH_DOCKER_SHOW false
 
 # Prompt Colors
 set SPACEFISH_USER_COLOR F37F97
@@ -74,3 +77,5 @@ function __nvm_use_on_cd --on-variable PWD --description 'Use Node.js version sp
     end
 end
 
+
+source /usr/local/opt/asdf/libexec/asdf.fish

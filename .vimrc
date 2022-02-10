@@ -61,7 +61,6 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'jiangmiao/auto-pairs'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'kshenoy/vim-signature'
-"Plug 'ludovicchabant/vim-gutentags'
 Plug 'schickling/vim-bufonly'
 Plug 'Shougo/unite.vim'
 Plug 'devjoe/vim-codequery'
@@ -69,6 +68,8 @@ Plug 'stsewd/fzf-checkout.vim'
 Plug 'ruanyl/vim-sort-imports'
 Plug 'kristijanhusak/vim-js-file-import', { 'do': 'npm install' }
 Plug 'easymotion/vim-easymotion'
+Plug 'elixir-editors/vim-elixir'
+Plug 'tpope/vim-endwise'
 
 call plug#end()
 
@@ -103,7 +104,7 @@ let g:user_emmet_settings = {
 \  },
 \}
 " ---------- Prettier ----------
-let g:prettier#autoformat = 1
+"let g:prettier#autoformat = 1
 
 autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.graphql,*.md,*.vue,*.yaml,*.html,*.svg PrettierAsync
 autocmd FileType javascript,javascriptreact,typescript,typescriptreact
@@ -111,7 +112,7 @@ autocmd FileType javascript,javascriptreact,typescript,typescriptreact
 " ---------- Ale ----------
 let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
 let g:ale_linters = {'javascript': ['prettier', 'eslint']}
-"let g:ale_fix_on_save = 1
+let g:ale_fix_on_save = 1
 let g:vim_json_syntax_conceal = 0
 " ---------- Vim Indent ----------
 let g:indentLine_char = 'c'
