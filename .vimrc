@@ -70,6 +70,7 @@ Plug 'kristijanhusak/vim-js-file-import', { 'do': 'npm install' }
 Plug 'easymotion/vim-easymotion'
 Plug 'elixir-editors/vim-elixir'
 Plug 'tpope/vim-endwise'
+Plug 'pantharshit00/vim-prisma'
 
 call plug#end()
 
