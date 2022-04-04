@@ -11,6 +11,7 @@ set PATH $ANDROID_HOME/tools $PATH
 set PATH $ANDROID_HOME/tools/bin $PATH
 set PATH $ANDROID_HOME/platform-tools $PATH
 
+set SPACEFISH_TIME_SHOW false
 set SPACEFISH_USER_SHOW always
 set SPACEFISH_PACKAGE_SHOW false	
 set SPACEFISH_DIR_PREFIX ""
@@ -76,6 +77,3 @@ function __nvm_use_on_cd --on-variable PWD --description 'Use Node.js version sp
        return
     end
 end
-
-
-source /usr/local/opt/asdf/libexec/asdf.fish
