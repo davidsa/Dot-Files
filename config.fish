@@ -26,6 +26,12 @@ set SPACEFISH_USER_COLOR F37F97
 set SPACEFISH_DIR_COLOR 79E6F3
 set SPACEFISH_GIT_STATUS_COLOR F37F97
 
+# The Real Real
+set -x VAULT_ADDR https://vault.therealreal.com
+set -x VAULT_SKIP_VERIFY true
+
+set -x GOPATH ~/.go
+
 alias l='ls -1'
 alias gs='git status'
 alias ga='git add .'
@@ -39,6 +45,7 @@ alias cl='clear'
 alias ws='cd ~/workspace'
 alias dotfiles='cd ~/workspace/Dot-Files'
 alias dps='docker ps -a'
+alias dcps='docker-compose ps'
 alias di='docker images'
 alias dip='docker image prune'
 
@@ -66,6 +73,18 @@ function gc
   git checkout $argv
 end
 
+function dex
+  docker exec -it $argv bash
+end
+
+function killport
+  lsof -t -i :$argv | xargs kill -9
+end
+
+function cdwhich
+  cd (dirname (which $argv))
+end
+
 function __nvm_use_on_cd --on-variable PWD --description 'Use Node.js version specified by project'
     if test -e .nvmrc
        nvm use
@@ -77,3 +96,7 @@ function __nvm_use_on_cd --on-variable PWD --description 'Use Node.js version sp
        return
     end
 end
+
+set -gx direnv_fish_mode disable_arrow
+
+direnv hook fish | source

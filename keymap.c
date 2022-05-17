@@ -76,7 +76,9 @@ enum custom_keycodes {
     KC_ADJUST,
     KC_D_MUTE,
     _TABNEXT,
-    _TABPREV
+    _TABPREV,
+    _TABNEW,
+    _TABCLOSE,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -183,7 +185,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
   _______, _______, _______, KC_MPRV, KC_MPLY, KC_MNXT,                    _______, _______, _______, _______, _______, _______,
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
-  _______, _______, _______, _TABPREV, _TABNEXT, _______,                    _______, _______, _______, _______, _______, _______,
+  _______, _______,_TABCLOSE,_TABPREV,_TABNEXT,_TABNEW,                    _______, _______, _______, _______, _______, _______,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
   _______, _______, _______, KC_BRID, KC_BRIU, _______, _______,  _______, _______, _______, _______, _______, _______, _______,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
@@ -343,6 +345,28 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             } else {
                 register_code(KC_P);
                 unregister_code(KC_P);
+            }
+            break;
+        case _TABNEW:
+            if (record->event.pressed) {
+                register_code(KC_LCTRL);
+                register_code(KC_B);
+                unregister_code(KC_B);
+                unregister_code(KC_LCTRL);
+            } else {
+                register_code(KC_C);
+                unregister_code(KC_C);
+            }
+            break;
+        case _TABCLOSE:
+            if (record->event.pressed) {
+                register_code(KC_LCTRL);
+                register_code(KC_B);
+                unregister_code(KC_B);
+                unregister_code(KC_LCTRL);
+            } else {
+                register_code(KC_X);
+                unregister_code(KC_X);
             }
             break;
     }

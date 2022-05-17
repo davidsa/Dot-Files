@@ -43,6 +43,9 @@ Plug 'scrooloose/nerdtree'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'airblade/vim-gitgutter'
 Plug 'leafgarland/typescript-vim'
+Plug 'peitalin/vim-jsx-typescript'
+Plug 'maxmellon/vim-jsx-pretty'
+Plug 'pangloss/vim-javascript'
 Plug 'joshdick/onedark.vim'
 Plug 'NovaDev94/lightline-onedark'
 Plug 'scrooloose/nerdcommenter'
@@ -71,6 +74,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'elixir-editors/vim-elixir'
 Plug 'tpope/vim-endwise'
 Plug 'pantharshit00/vim-prisma'
+Plug 'drewtempelmeyer/palenight.vim'
 
 call plug#end()
 
@@ -97,7 +101,7 @@ let g:UltiSnipsJumpForwardTrigger="<c-b>"
 let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 let g:UltiSnipsEditSplit="vertical"
 let g:UltiSnipsSnippetsDir="~/workspace/Dot-Files/UltiSnips"
-"let g:UltiSnipsSnippetDirectories=["/Users/davidsttivend/.vim/UltiSnips", "UltiSnips"]
+let g:UltiSnipsSnippetDirectories=["~/workspace/Dot-Files/UltiSnips"]
 " ---------- Emmet ----------
 let g:user_emmet_settings = {
 \  'javascript' : {
