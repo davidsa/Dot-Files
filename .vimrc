@@ -22,6 +22,7 @@ set shell=/bin/bash
 set nowrap
 set nohlsearch
 set scrolloff=8
+set termguicolors
 
 set rtp+=/usr/local/opt/fzf
 
@@ -75,6 +76,7 @@ Plug 'elixir-editors/vim-elixir'
 Plug 'tpope/vim-endwise'
 Plug 'pantharshit00/vim-prisma'
 Plug 'drewtempelmeyer/palenight.vim'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
 
 call plug#end()
 
@@ -115,9 +117,10 @@ autocmd BufWritePre *.js,*.jsx,*.mjs,*.ts,*.tsx,*.css,*.less,*.scss,*.json,*.gra
 autocmd FileType javascript,javascriptreact,typescript,typescriptreact
   \ UltiSnipsAddFiletypes javascript.javascriptreact.typescript.typescriptreact
 " ---------- Ale ----------
-let g:ale_fixers = {'javascript': ['prettier', 'eslint']}
-let g:ale_linters = {'javascript': ['prettier', 'eslint']}
+let g:ale_fixers = {'javascript': ['prettier', 'eslint'], 'elixir': ['mix_format']}
+let g:ale_linters = {'javascript': ['prettier', 'eslint'], 'elixir': ['elixir-ls']}
 let g:ale_fix_on_save = 1
+let g:ale_elixir_elixir_ls_release = '/Users/david.sttivend/workspace/elixir-ls/release'
 let g:vim_json_syntax_conceal = 0
 " ---------- Vim Indent ----------
 let g:indentLine_char = 'c'
@@ -176,20 +179,24 @@ nnoremap <leader>c zfiB
 syntax on
 colorscheme onedark
 
-if exists('+termguicolors')
+"if exists('+termguicolors')
+  "let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+  "let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+"endif
+
+if !has('gui_running') && &term =~ '^\%(screen\|tmux\)'
   let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
   let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
-  set termguicolors
 endif
 
-" use <tab> for trigger completion and navigate to the next complete item
-function! s:check_back_space() abort
+function! CheckBackspace() abort
   let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~ '\s'
+  return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
-inoremap <silent><expr> <Tab>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<Tab>" :
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1) :
+      \ CheckBackspace() ? "\<Tab>" :
       \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
 
