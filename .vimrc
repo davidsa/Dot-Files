@@ -140,6 +140,7 @@ highlight NERDTreeCWD ctermfg=white
 
 
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+autocmd BufNewFile,BufRead *.env* :setf bash
 
 "---------- Mapping ---------
 
