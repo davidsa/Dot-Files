@@ -100,3 +100,5 @@ end
 set -gx direnv_fish_mode disable_arrow
 
 direnv hook fish | source
+
+source /usr/local/opt/asdf/libexec/asdf.fish

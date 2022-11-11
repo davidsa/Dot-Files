@@ -132,7 +132,7 @@ let $FZF_DEFAULT_OPTS = '--reverse'
 
 let mapleader = "\<Space>"
 
-let g:coc_node_path = '/Users/david.sttivend/.nvm/versions/node/v17.8.0/bin/node'
+let g:coc_node_path = '/Users/david.sttivend/.asdf/shims/node'
 
 "---------- NerdTree ---------
 
