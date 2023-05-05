@@ -174,10 +174,10 @@ cnoremap <expr> %% getcmdtype() ==# ':' ? fnameescape(expand('%:h')) . '/' : '%%
 nnoremap <leader>% :source ~/.vimrc<CR>
 
 " move lines
-nnoremap <A-j> :m .+1<CR>==
-nnoremap <A-k> :m .-2<CR>==
-vnoremap <A-j> :m '>+1<CR>gv=gv
-vnoremap <A-k> :m '<-2<CR>gv=gv
+nnoremap ¶ :m .+1<CR>==
+nnoremap § :m .-2<CR>==
+vnoremap ¶ :m '>+1<CR>gv=gv
+vnoremap § :m '<-2<CR>gv=gv
 
 " ---------- Folds ----------
 
