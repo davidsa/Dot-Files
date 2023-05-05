@@ -40,7 +40,10 @@ alias gp='git push'
 alias gl='git pull'
 alias gdb='git branch --merged | egrep -v "(^\*|main|dev)" | xargs git branch -d'
 alias tls='tmux ls'
+alias tn='tmux new -s (basename "$PWD")'
 alias cl='clear'
+
+alias tn='tmux new -s (basename "$PWD")'
 
 alias ws='cd ~/workspace'
 alias dotfiles='cd ~/workspace/Dot-Files'
@@ -48,6 +51,8 @@ alias dps='docker ps -a'
 alias dcps='docker-compose ps'
 alias di='docker images'
 alias dip='docker image prune'
+
+alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 
 function t
   tmux $argv

@@ -77,6 +77,8 @@ Plug 'tpope/vim-endwise'
 Plug 'pantharshit00/vim-prisma'
 Plug 'drewtempelmeyer/palenight.vim'
 Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+Plug 'tyru/open-browser.vim'
+Plug 'tyru/open-browser-github.vim'
 
 call plug#end()
 
@@ -165,11 +167,17 @@ nnoremap <leader>n :bn<CR>
 nnoremap <leader>b :Buffers<CR>
 nnoremap <leader>d :bun<CR>
 nnoremap <leader>x :bd<CR>
-
+" marks
+nnoremap <leader>m :Marks<CR>
 cnoremap <expr> %% getcmdtype() ==# ':' ? fnameescape(expand('%:h')) . '/' : '%%'
 
 nnoremap <leader>% :source ~/.vimrc<CR>
 
+" move lines
+nnoremap <A-j> :m .+1<CR>==
+nnoremap <A-k> :m .-2<CR>==
+vnoremap <A-j> :m '>+1<CR>gv=gv
+vnoremap <A-k> :m '<-2<CR>gv=gv
 
 " ---------- Folds ----------
 
