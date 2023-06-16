@@ -32,6 +32,8 @@ set -x VAULT_SKIP_VERIFY true
 
 set -x GOPATH ~/.go
 
+alias vim='nvim'
+
 alias l='ls -1'
 alias gs='git status'
 alias ga='git add .'
