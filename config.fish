@@ -56,6 +56,8 @@ alias dip='docker image prune'
 
 alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 
+alias pj='cd (find ~/workspace -type d -not -path "*/node_modules/*" -maxdepth 1 | fzf)'
+
 function t
   tmux $argv
 end
@@ -109,3 +111,5 @@ set -gx direnv_fish_mode disable_arrow
 direnv hook fish | source
 
 source /usr/local/opt/asdf/libexec/asdf.fish
+
+set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /Users/david.sttivend/.ghcup/bin # ghcup-env

@@ -28,6 +28,7 @@ return require('packer').startup(function(use)
   use 'slim-template/vim-slim'
   use 'airblade/vim-gitgutter'
   use 'kshenoy/vim-signature'
+  use 'kevinhwang91/nvim-bqf'
 
 
   use {

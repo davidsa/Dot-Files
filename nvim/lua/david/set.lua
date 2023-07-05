@@ -31,4 +31,5 @@ vim.opt.swapfile = false
 vim.opt.backup = false
 
 -- Mouse
-vim.opt.mouse = ""
+-- let resize buffer with mouse
+vim.opt.mouse = "n"
