@@ -144,7 +144,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
   KC_LSFT, KC_Z,   KC_X,    KC_C,    KC_V,    KC_B,  KC_MUTE,  KC_D_MUTE, KC_N,    KC_M,   KC_COMM, KC_DOT,  KC_SLSH, KC_LSFT,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
-                 KC_LCTRL, KC_LALT, KC_LGUI, KC_SPC, KC_SYMBOLS, KC_RAISE,  KC_ENT,  KC_BSPC,KC_RALT, KC_RCTRL
+                 KC_LCTL, KC_LALT, KC_LGUI, KC_SPC, KC_SYMBOLS, KC_RAISE,  KC_ENT,  KC_BSPC,KC_RALT, KC_RCTL
   //            \--------+--------+--------+---------+-------|   |--------+---------+--------+---------+-------/
 ),
 
@@ -245,9 +245,9 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
   [_ADJUST] = LAYOUT(
   //,------------------------------------------------.                    ,---------------------------------------------------.
-  EEP_RST, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  EE_CLR, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                   XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
-  RESET,   XXXXXXX,XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
+  QK_BOOT,   XXXXXXX,XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,                    XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX, XXXXXXX,
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
   RGB_TOG, RGB_HUI,RGB_SAI, RGB_VAI, KC_NO,   KC_NO,             C(G(KC_LEFT)),KC_NO,KC_NO,C(G(KC_RGHT)),XXXXXXX, XXXXXXX,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
@@ -380,10 +380,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             }
         case _TABNEXT:
             if (record->event.pressed) {
-                register_code(KC_LCTRL);
+                register_code(KC_LCTL);
                 register_code(KC_B);
                 unregister_code(KC_B);
-                unregister_code(KC_LCTRL);
+                unregister_code(KC_LCTL);
             } else {
                 register_code(KC_N);
                 unregister_code(KC_N);
@@ -391,10 +391,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case _TABPREV:
             if (record->event.pressed) {
-                register_code(KC_LCTRL);
+                register_code(KC_LCTL);
                 register_code(KC_B);
                 unregister_code(KC_B);
-                unregister_code(KC_LCTRL);
+                unregister_code(KC_LCTL);
             } else {
                 register_code(KC_P);
                 unregister_code(KC_P);
@@ -402,10 +402,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case _TABNEW:
             if (record->event.pressed) {
-                register_code(KC_LCTRL);
+                register_code(KC_LCTL);
                 register_code(KC_B);
                 unregister_code(KC_B);
-                unregister_code(KC_LCTRL);
+                unregister_code(KC_LCTL);
             } else {
                 register_code(KC_C);
                 unregister_code(KC_C);
@@ -413,10 +413,10 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
             break;
         case _TABCLOSE:
             if (record->event.pressed) {
-                register_code(KC_LCTRL);
+                register_code(KC_LCTL);
                 register_code(KC_B);
                 unregister_code(KC_B);
-                unregister_code(KC_LCTRL);
+                unregister_code(KC_LCTL);
             } else {
                 register_code(KC_X);
                 unregister_code(KC_X);

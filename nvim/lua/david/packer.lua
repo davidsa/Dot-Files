@@ -8,6 +8,7 @@ return require('packer').startup(function(use)
   use 'tpope/vim-surround'
   use 'wbthomason/packer.nvim'
   use('nvim-treesitter/nvim-treesitter', { run = ':TSUpdate' })
+  use 'RRethy/nvim-treesitter-endwise'
   use 'terryma/vim-multiple-cursors'
   use 'mattn/emmet-vim'
   use 'zivyangll/git-blame.vim'

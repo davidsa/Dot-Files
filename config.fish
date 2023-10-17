@@ -1,7 +1,4 @@
-source ~/workspace/Dot-Files/git-completion.fish
-source /usr/local/opt/asdf/libexec/asdf.fish
-
-set EDITOR "vim"
+set EDITOR "nvim"
 set -U fish_greeting
 
 set -x LC_ALL en_US.UTF-8
@@ -56,7 +53,7 @@ alias dip='docker image prune'
 
 alias flushdns="sudo dscacheutil -flushcache; sudo killall -HUP mDNSResponder"
 
-alias pj='cd (find ~/workspace -type d -not -path "*/node_modules/*" -maxdepth 1 | fzf)'
+alias pj='cd (find ~/workspace -type d -not -path "*/node_modules/*" -maxdepth 1 | fzf) && tn'
 
 function t
   tmux $argv
@@ -106,10 +103,14 @@ function __nvm_use_on_cd --on-variable PWD --description 'Use Node.js version sp
     end
 end
 
+function mux
+  tmuxinator $argv
+end 
+
 set -gx direnv_fish_mode disable_arrow
 
 direnv hook fish | source
 
-source /usr/local/opt/asdf/libexec/asdf.fish
-
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /Users/david.sttivend/.ghcup/bin # ghcup-env
+
+source /opt/homebrew/opt/asdf/libexec/asdf.fish
