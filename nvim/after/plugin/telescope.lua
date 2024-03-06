@@ -5,7 +5,8 @@ require('telescope').setup({
     layout_config = {
       width = 0.95,
       height = 0.95,
-      mirror = true
+      mirror = true,
+      prompt_position = 'top'
     }
   },
   pickers = {
