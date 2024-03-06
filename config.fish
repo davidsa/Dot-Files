@@ -29,6 +29,9 @@ set -x VAULT_SKIP_VERIFY true
 
 set -x GOPATH ~/.go
 
+fish_add_path ~/.go
+fish_add_path ~/.go/bin
+
 alias vim='nvim'
 
 alias l='ls -1'

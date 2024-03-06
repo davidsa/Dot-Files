@@ -1,8 +1,11 @@
 require('telescope').setup({
   defaults = {
     sorting_strategy = 'ascending',
+    layout_strategy = 'vertical',
     layout_config = {
-      prompt_position = 'top',
+      width = 0.95,
+      height = 0.95,
+      mirror = true
     }
   },
   pickers = {
