@@ -49,20 +49,22 @@ selection:
   save_to_clipboard: true
 
 live_config_reload: true
-
 key_bindings:
   # (macOS only)
-  - { key: Key0,   mods: Command, action: ResetFontSize    }
-  - { key: Equals, mods: Command, action: IncreaseFontSize }
+  - { key: Key0,   mods: Command, action: ResetFontSize     }
+  - { key: Equals, mods: Command, action: IncreaseFontSize  }
   - { key: Plus,    mods: Command, action: IncreaseFontSize }
-  - { key: Minus,  mods: Command, action: DecreaseFontSize }
-  - { key: K,      mods: Command, action: ClearHistory     }
-  - { key: K,      mods: Command, chars: "\x0c"            }
-  - { key: V,      mods: Command, action: Paste            }
-  - { key: C,      mods: Command, action: Copy             }
-  - { key: H,      mods: Command, action: Hide             }
-  - { key: Q,      mods: Command, action: Quit             }
-  - { key: W,      mods: Command, action: Quit             }
+  - { key: Minus,  mods: Command, action: DecreaseFontSize  }
+  - { key: K,      mods: Command, action: ClearHistory      }
+  - { key: K,      mods: Command, chars: "\x0c"             }
+  - { key: V,      mods: Command, action: Paste             }
+  - { key: C,      mods: Command, action: Copy              }
+  - { key: H,      mods: Command, action: Hide              }
+  - { key: Q,      mods: Command, action: Quit              }
+  - { key: W,      mods: Command, action: Quit              }
+  - { key: Back,   mods: Command, chars: "\x15"             }
+  - { key: J,      mods: Control|Shift, chars: "\x1b[74;6u" }
+  - { key: K,      mods: Control|Shift, chars: "\x1b[75;6u" }
 
   - { key: Paste,                   action: Paste                            }
   - { key: Copy,                    action: Copy                             }
