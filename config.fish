@@ -82,6 +82,10 @@ function gc
   git checkout $argv
 end
 
+function gsf
+  git switch -f $argv
+end
+
 function dex
   docker exec -it $argv bash
 end
