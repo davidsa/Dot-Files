@@ -1,3 +1,5 @@
+local actions = require('telescope.actions')
+
 require('telescope').setup({
   defaults = {
     sorting_strategy = 'ascending',
@@ -7,6 +9,11 @@ require('telescope').setup({
       height = 0.95,
       mirror = true,
       prompt_position = 'top'
+    },
+    mappings = {
+      n = {
+        ["<C-t>"] = actions.send_selected_to_qflist + actions.open_qflist,
+      }
     }
   },
   pickers = {
