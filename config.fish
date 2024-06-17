@@ -40,6 +40,7 @@ alias ga='git add .'
 alias gb='git checkout (git branch | fzf | string trim)'
 alias gp='git push'
 alias gl='git pull'
+alias gmt="git mergetool"
 alias gdb='git branch --merged | egrep -v "(^\*|main|dev)" | xargs git branch -d'
 alias tls='tmux ls'
 alias tn='tmux new -s (basename "$PWD")'

@@ -1,1 +1,1 @@
-vim.g.UltiSnipsSnippetDirectories = {"~/workspace/Dot-Files/snippets"}
+vim.g.UltiSnipsSnippetDirectories = { "~/workspace/Dot-Files/snippets" }

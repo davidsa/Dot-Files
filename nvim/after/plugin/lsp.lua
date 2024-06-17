@@ -1,7 +1,5 @@
 local lsp = require('lsp-zero').preset({})
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities
-
 require('mason').setup({})
 require('mason-lspconfig').setup({
   ensure_installed = {
@@ -37,6 +35,7 @@ end)
 
 local cmp = require('cmp')
 local cmp_ultisnips_mappings = require('cmp_nvim_ultisnips.mappings')
+local types = require('cmp.types')
 
 cmp.setup({
   snippet = {
@@ -50,6 +49,7 @@ cmp.setup({
     { name = 'buffer',   keyword_length = 3 },
     { name = 'ultisnips' },
   },
+  preselect = types.cmp.PreselectMode.None,
   mapping = {
     ['<Tab>'] = cmp.mapping(function(fallback)
       cmp_ultisnips_mappings.compose({ "select_next_item", "jump_forwards" })(fallback)
@@ -59,7 +59,8 @@ cmp.setup({
     end, { "i", "s" }),
     ['<C-j>'] = cmp.mapping(function(fallback)
       cmp_ultisnips_mappings.compose({ "expand" })(fallback)
-    end, { "i", "s" })
+    end, { "i", "s" }),
+    ['<CR>'] = cmp.mapping.confirm({ select = true })
   }
 })
 

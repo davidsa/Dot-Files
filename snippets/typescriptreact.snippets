@@ -69,9 +69,11 @@ expect($1).$2($3)
 endsnippet
 
 snippet rfc "React functional component" b
-import React from 'react';
+import { FC } from 'react';
 
-export const $1 = () => {
+type $1Props = {}
+
+export const $1 : FC<$1Props> = () => {
   return <div>$2</div>;
 };
 endsnippet
@@ -99,3 +101,8 @@ snippet req "require" b
 const $1=require('$1')
 endsnippet
  
+snippet test "test" i
+test("$1", () => {
+	$2
+})
+endsnippet

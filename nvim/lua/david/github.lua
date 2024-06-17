@@ -53,7 +53,7 @@ local open_github_file = function()
   local branch = run_cmd(git_branch_cmd)
   local line_number = get_line_number()
 
-  local file_path = vim.fn.expand("%")
+  local file_path = vim.fn.expand("%:.")
   local url = remote .. "/blob/" .. branch .. "/" .. file_path .. "#L" .. line_number
 
 

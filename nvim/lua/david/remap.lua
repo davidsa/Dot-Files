@@ -40,3 +40,6 @@ vim.keymap.set("n", "N", "Nzzzv")
 -- Quick list
 vim.keymap.set("n", "<leader>j", "<cmd>cnext<CR>zz")
 vim.keymap.set("n", "<leader>k", "<cmd>cprev<CR>zz")
+
+-- Paste withouth losing content
+vim.keymap.set("x", "<leader>p", "\"_dP")
