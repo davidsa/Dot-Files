@@ -1,99 +1,5 @@
- /* Copyright 2021 Dane Evans
-  *
-  * This program is free software: you can redistribute it and/or modify
-  * it under the terms of the GNU General Public License as published by
-  * the Free Software Foundation, either version 2 of the License, or
-  * (at your option) any later version.
-  *
-  * This program is distributed in the hope that it will be useful,
-  * but WITHOUT ANY WARRANTY; without even the implied warranty of
-  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-  * GNU General Public License for more details.
-  *
-  * You should have received a copy of the GNU General Public License
-  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
-  */
-  // SOFLE RGB
 #include <stdio.h>
-
 #include QMK_KEYBOARD_H
-
-#define INDICATOR_BRIGHTNESS 30
-
-#define HSV_OVERRIDE_HELP(h, s, v, Override) h, s , Override
-#define HSV_OVERRIDE(hsv, Override) HSV_OVERRIDE_HELP(hsv,Override)
-
-// Light combinations
-#define SET_INDICATORS(hsv) \
-	{0, 1, HSV_OVERRIDE_HELP(hsv, INDICATOR_BRIGHTNESS)}, \
-    {36+0, 1, HSV_OVERRIDE_HELP(hsv, INDICATOR_BRIGHTNESS)}
-
-#define SET_UNDERGLOW(hsv) \
-	{1   , 6, hsv}, \
-    {36+1, 6, hsv}
-
-#define SET_NUMROW(hsv) \
-	{12, 1, hsv}, \
-	{21, 2, hsv}, \
-	{31, 2, hsv}, \
-    {36+12, 1, hsv}, \
-    {36+21, 2, hsv}, \
-    {36+31, 2, hsv}
-
-#define SET_MODIFIER_KEYS(hsv) \
-    {7, 2, hsv}, \
-    {16, 2, hsv}, \
-    {26, 1, hsv}, \
-    {36+7, 2, hsv}, \
-    {36+16, 2, hsv}, \
-    {36+26, 1, hsv}
-
-#define SET_THUMB_KEYS(hsv) \
-    {27, 1, hsv}, \
-    {36+27, 1, hsv}
-
-#define SET_REGULAR_KEYS(hsv) \
-    {9, 3, hsv}, \
-    {13, 3, hsv}, \
-    {18, 3, hsv}, \
-    {23, 3, hsv}, \
-    {28, 3, hsv}, \
-    {33, 3, hsv}, \
-    {9+13, 3, hsv}, \
-    {36+13, 3, hsv}, \
-    {36+18, 3, hsv}, \
-    {36+23, 3, hsv}, \
-    {36+28, 3, hsv}, \
-    {36+33, 3, hsv}
-
-#define SET_ESC(hsv) \
-    {9, 1, hsv}
-
-#define SET_SYMBOL_KEYS(hsv) \
-    {36+23, 3, hsv}, \
-    {36+28, 3, hsv}, \
-    {36+33, 3, hsv}
-
-#define SET_NAV(hsv) \
-    {36+34, 1, hsv}, \
-    {36+29, 1, hsv}, \
-    {36+24, 1, hsv}, \
-    {36+19, 1, hsv}
-
-#define SET_MEDIA(hsv) \
-    {23, 1, hsv}, \
-    {30, 1, hsv}, \
-    {33, 1, hsv}
-
-#define SET_TMUX(hsv) \
-    {19, 1, hsv}, \
-    {24, 1, hsv}, \
-    {29, 1, hsv}, \
-    {34, 1, hsv}
-
-#define SET_BRIGHTNESS(hsv) \
-    {25, 1, hsv}, \
-    {28, 1, hsv}
 
 enum sofle_layers {
     _DEFAULTS = 0,
@@ -115,7 +21,6 @@ enum custom_keycodes {
     _TABPREV,
     _TABNEW,
     _TABCLOSE,
-    EXPONENT = SAFE_RANGE,
 };
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
@@ -168,7 +73,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
   _______, _______, _______, _______, _______, _______,                    KC_LBRC , A(KC_LBRC), A(KC_RBRC), _______, _______, _______,
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
-  _______, _______, _______, _______, _______, _______,                    S(KC_0), A(KC_QUOT), A(KC_BSLS), EXPONENT, _______, _______,
+  _______, _______, _______, _______, _______, _______,                    S(KC_0), A(KC_QUOT), A(KC_BSLS), S(KC_LBRC), _______, _______,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
   _______, _______, _______, _______, _______, _______, _______,  _______, A(KC_NUBS), KC_GRV,  S(KC_GRV),   _______, _______, _______,
   //|------+-------+--------+--------+--------+------|  ===  |   |  ===  |--------+-------+--------+--------+--------+---------|
@@ -218,7 +123,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
  */
 [_RAISE] = LAYOUT(
   //,------------------------------------------------.                    ,---------------------------------------------------.
-  KC_SLEP, _______, _______, _______, _______, _______,                    _______, _______, _______, _______, _______, _______,
+  RGB_MOD, _______, _______, _______, _______, _______,                    _______, _______, _______, _______, _______, _______,
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
   _______, _______, _______, KC_MPRV, KC_MPLY, KC_MNXT,                    _______, _______, _______, _______, _______, _______,
   //|------+-------+--------+--------+--------+------|                   |--------+-------+--------+--------+--------+---------|
@@ -257,86 +162,6 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     //            \--------+--------+--------+---------+-------|   |--------+---------+--------+---------+-------/
 ),
 };
-
-#ifdef RGBLIGHT_ENABLE
-char layer_state_str[70];
-
-const rgblight_segment_t PROGMEM layer_qwerty_lights[] = RGBLIGHT_LAYER_SEGMENTS(
-  SET_INDICATORS(HSV_BLUE),
-  SET_REGULAR_KEYS(HSV_BLUE),
-  SET_NUMROW(HSV_TURQUOISE),
-  SET_MODIFIER_KEYS(HSV_TEAL),
-  SET_ESC(HSV_TEAL),
-  SET_THUMB_KEYS(HSV_TEAL)
-);
-
-const rgblight_segment_t PROGMEM layer_symbol_lights[] = RGBLIGHT_LAYER_SEGMENTS(
-  SET_INDICATORS(HSV_PURPLE),
-  SET_REGULAR_KEYS(HSV_BLUE),
-  SET_NUMROW(HSV_TURQUOISE),
-  SET_MODIFIER_KEYS(HSV_TEAL),
-  SET_ESC(HSV_TEAL),
-  SET_THUMB_KEYS(HSV_TEAL),
-  SET_SYMBOL_KEYS(HSV_PURPLE)
-);
-
-const rgblight_segment_t PROGMEM layer_nav_lights[] = RGBLIGHT_LAYER_SEGMENTS(
-  SET_INDICATORS(HSV_SPRINGGREEN),
-  SET_REGULAR_KEYS(HSV_BLUE),
-  SET_NUMROW(HSV_TURQUOISE),
-  SET_MODIFIER_KEYS(HSV_TEAL),
-  SET_ESC(HSV_TEAL),
-  SET_THUMB_KEYS(HSV_TEAL),
-  SET_NAV(HSV_SPRINGGREEN)
-);
-
-const rgblight_segment_t PROGMEM layer_raise_lights[] = RGBLIGHT_LAYER_SEGMENTS(
-  SET_INDICATORS(HSV_ORANGE),
-  SET_REGULAR_KEYS(HSV_BLUE),
-  SET_NUMROW(HSV_TURQUOISE),
-  SET_MODIFIER_KEYS(HSV_TEAL),
-  SET_ESC(HSV_TEAL),
-  SET_THUMB_KEYS(HSV_TEAL),
-  SET_MEDIA(HSV_GREEN),
-  SET_TMUX(HSV_ORANGE),
-  SET_BRIGHTNESS(HSV_YELLOW),
-  {35, 1, HSV_RED}
-);
-
-const rgblight_segment_t PROGMEM layer_adjust_lights[] = RGBLIGHT_LAYER_SEGMENTS(
-  SET_INDICATORS(HSV_BLUE),
-  SET_REGULAR_KEYS(HSV_BLUE),
-  SET_NUMROW(HSV_TURQUOISE),
-  SET_MODIFIER_KEYS(HSV_TEAL),
-  SET_ESC(HSV_TEAL),
-  SET_THUMB_KEYS(HSV_TEAL)
-);
-
-const rgblight_segment_t* const PROGMEM my_rgb_layers[] = RGBLIGHT_LAYERS_LIST(
-    layer_qwerty_lights,
-	layer_symbol_lights,
-    layer_nav_lights,
-    layer_raise_lights,
-    layer_adjust_lights
-);
-
-layer_state_t layer_state_set_user(layer_state_t state) {
-	rgblight_set_layer_state(0, layer_state_cmp(state, _DEFAULTS) && layer_state_cmp(default_layer_state,_QWERTY));
-	rgblight_set_layer_state(1, layer_state_cmp(state, _SYMBOLS));
-	rgblight_set_layer_state(2, layer_state_cmp(state, _NAV));
-	rgblight_set_layer_state(3, layer_state_cmp(state, _RAISE));
-	rgblight_set_layer_state(4, layer_state_cmp(state, _ADJUST));
-    return state;
-}
-
-void keyboard_post_init_user(void) {
-    // Enable the LED layers
-    rgblight_enable_noeeprom();
-    rgblight_sethsv_noeeprom(HSV_BLUE);
-    rgblight_mode_noeeprom(RGBLIGHT_MODE_STATIC_LIGHT);
-    rgblight_layers = my_rgb_layers;
-}
-#endif
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     switch (keycode) {
@@ -378,6 +203,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 unregister_mods(mod_config(MOD_MEH));
                 unregister_code(KC_UP);
             }
+            return false;
         case _TABNEXT:
             if (record->event.pressed) {
                 register_code(KC_LCTL);
@@ -388,7 +214,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 register_code(KC_N);
                 unregister_code(KC_N);
             }
-            break;
+            return false;
         case _TABPREV:
             if (record->event.pressed) {
                 register_code(KC_LCTL);
@@ -399,7 +225,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 register_code(KC_P);
                 unregister_code(KC_P);
             }
-            break;
+            return false;
         case _TABNEW:
             if (record->event.pressed) {
                 register_code(KC_LCTL);
@@ -410,7 +236,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 register_code(KC_C);
                 unregister_code(KC_C);
             }
-            break;
+            return false;
         case _TABCLOSE:
             if (record->event.pressed) {
                 register_code(KC_LCTL);
@@ -421,17 +247,13 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
                 register_code(KC_X);
                 unregister_code(KC_X);
             }
-            break;
-        case EXPONENT:
-            if(record->event.pressed){
-              SEND_STRING("^");
-            }
-            break;
+            return false;
     }
     return true;
 }
 
 #ifdef ENCODER_ENABLE
+
 
 bool encoder_update_user(uint8_t index, bool clockwise) {
     if (index == 0) {
@@ -447,7 +269,48 @@ bool encoder_update_user(uint8_t index, bool clockwise) {
             tap_code(KC_BRID);
         }
     }
-    return true;
+    return false;
 }
 
 #endif
+
+bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    if (get_highest_layer(layer_state) > 0) {
+        uint8_t layer = get_highest_layer(layer_state);
+
+        for (uint8_t row = 0; row < MATRIX_ROWS; ++row) {
+            for (uint8_t col = 0; col < MATRIX_COLS; ++col) {
+                uint8_t index = g_led_config.matrix_co[row][col];
+
+                if (index >= led_min && index < led_max && index != NO_LED ) {
+                    uint16_t keycode = keymap_key_to_keycode(layer, (keypos_t){col,row});
+
+                    if ( keycode == KC_MNXT || keycode == KC_MPLY || keycode == KC_MPRV) {
+                        // Media keys
+                        rgb_matrix_set_color(index, RGB_GREEN);
+                    } else if ( keycode == _TABCLOSE || keycode == _TABPREV || keycode == _TABNEXT || keycode == _TABNEW) {
+                        // TMUX keys
+                        rgb_matrix_set_color(index, RGB_ORANGE);
+                    } else if ( keycode == KC_BRID || keycode == KC_BRIU) {
+                        // Brightness keys
+                        rgb_matrix_set_color(index, RGB_YELLOW);
+                    } else if ( keycode == RGB_TOG) {
+                        rgb_matrix_set_color(index, RGB_RED);
+                    } else if (keycode> KC_TRNS) {
+                        if(layer == _SYMBOLS){
+                            rgb_matrix_set_color(index, RGB_PURPLE);
+                        } else if(layer == _NAV){
+                            rgb_matrix_set_color(index, RGB_PINK);
+                        }
+                    }
+                }
+            }
+        }
+    }
+    return false;
+}
+
+void matrix_init_user(void){
+    rgb_matrix_mode(RGB_MATRIX_GRADIENT_LEFT_RIGHT);
+}
+
