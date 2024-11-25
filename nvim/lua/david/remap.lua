@@ -43,3 +43,5 @@ vim.keymap.set("n", "<leader>k", "<cmd>cprev<CR>zz")
 
 -- Paste withouth losing content
 vim.keymap.set("x", "<leader>p", "\"_dP")
+
+vim.keymap.set("n", "<leader>cp", ":let @+ = expand('%')<CR>")

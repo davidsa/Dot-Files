@@ -38,8 +38,14 @@ describe('$1',() => {
 })
 endsnippet
 
-snippet it "describe" b
+snippet it "it" b
 it('$1',() => {
+  $2
+})
+endsnippet
+
+snippet test "test" b
+test('$1',() => {
   $2
 })
 endsnippet
