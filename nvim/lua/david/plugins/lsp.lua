@@ -40,6 +40,15 @@ return {
 				capabilities = capabilities,
 			})
 
+			lspconfig.elixirls.setup({
+				capabilities = capabilities,
+				cmd = { "/Users/david.sttivend/.local/share/nvim/mason/packages/elixir-ls/language_server.sh" },
+			})
+
+			lspconfig.solargraph.setup({
+				capabilities = capabilities,
+			})
+
 			vim.keymap.set("n", "K", "<cmd>lua vim.lsp.buf.hover()<cr>")
 			vim.keymap.set("n", "gd", "<cmd>lua vim.lsp.buf.definition()<cr>")
 			vim.keymap.set("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<cr>")
