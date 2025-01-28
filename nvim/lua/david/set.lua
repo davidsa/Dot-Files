@@ -20,6 +20,7 @@ vim.opt.splitbelow = true
 -- Indentation
 vim.opt.expandtab = true
 vim.opt.smartindent = true
+vim.opt.autoindent = true
 
 vim.opt.tabstop = 2
 vim.opt.softtabstop = 2
