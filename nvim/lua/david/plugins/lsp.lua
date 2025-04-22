@@ -40,12 +40,22 @@ return {
 				capabilities = capabilities,
 			})
 
-			lspconfig.elixirls.setup({
+			lspconfig.lexical.setup({
+				cmd = {
+					"/Users/david.sttivend/.local/share/nvim/mason/packages/lexical/libexec/lexical/bin/start_lexical.sh",
+				},
 				capabilities = capabilities,
-				cmd = { "/Users/david.sttivend/.local/share/nvim/mason/packages/elixir-ls/language_server.sh" },
 			})
 
-			lspconfig.solargraph.setup({
+			lspconfig.ruby_lsp.setup({
+				capabilities = capabilities,
+			})
+
+			lspconfig.gopls.setup({
+				capabilities = capabilities,
+			})
+
+			lspconfig.apex_ls.setup({
 				capabilities = capabilities,
 			})
 
@@ -59,6 +69,9 @@ return {
 			vim.keymap.set("n", "<F2>", "<cmd>lua vim.lsp.buf.rename()<cr>")
 			vim.keymap.set({ "n", "x" }, "<F3>", "<cmd>lua vim.lsp.buf.format({async = true})<cr>")
 			vim.keymap.set("n", "<F4>", "<cmd>lua vim.lsp.buf.code_action()<cr>")
+			vim.keymap.set("n", "gk", function()
+				vim.diagnostic.open_float(0, { scope = "line" })
+			end)
 		end,
 	},
 	{
@@ -88,6 +101,7 @@ return {
 					{ name = "nvim_lsp" },
 					{ name = "buffer", keyword_length = 3 },
 					{ name = "ultisnips" },
+					{ name = "copilot" },
 				},
 				preselect = types.cmp.PreselectMode.None,
 				mapping = {

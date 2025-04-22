@@ -148,6 +148,13 @@ function mux
   tmuxinator $argv
 end 
 
+function remove_path
+  if set -l index (contains -i "$argv" $fish_user_paths)
+    set -e fish_user_paths[$index]
+    echo "Removed $argv from the path"
+  end
+end
+
 set -gx direnv_fish_mode disable_arrow
 
 direnv hook fish | source
@@ -155,3 +162,7 @@ direnv hook fish | source
 set -q GHCUP_INSTALL_BASE_PREFIX[1]; or set GHCUP_INSTALL_BASE_PREFIX $HOME ; set -gx PATH $HOME/.cabal/bin $PATH /Users/david.sttivend/.ghcup/bin # ghcup-env
 
 source /opt/homebrew/opt/asdf/libexec/asdf.fish
+
+alias aws_trr_legacy="docker run --rm -v ~/.okta/config.legacy.properties:/root/.okta/config.properties -v ~/.aws:/root/.aws -it public.ecr.aws/e4w7r6f6/trr/okta-awscli-java withokta aws trr-legacy --version && export AWS_PROFILE=trr-legacy"
+alias aws_trr_staging="docker run --rm -v ~/.okta/config.staging.properties:/root/.okta/config.properties -v ~/.aws:/root/.aws -it public.ecr.aws/e4w7r6f6/trr/okta-awscli-java withokta aws trr-staging --version && export AWS_PROFILE=trr-staging"
+alias aws_trr_production='docker run --rm -v ~/.okta/config.production.properties:/root/.okta/config.properties -v ~/.aws:/root/.aws -it public.ecr.aws/e4w7r6f6/trr/okta-awscli-java withokta aws trr-production --version && export AWS_PROFILE=trr-production'
