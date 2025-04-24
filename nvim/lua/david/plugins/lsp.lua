@@ -91,6 +91,20 @@ return {
 			local types = require("cmp.types")
 
 			cmp.setup({
+				window = {
+					completion = cmp.config.window.bordered({
+						winhighlight = "Normal:Normal,FloatBorder:FloatBorder,CursorLine:Visual,Search:None",
+						col_offset = -3,
+						side_padding = 1,
+						-- Try increasing these
+						max_width = 80,
+						max_height = 20,
+					}),
+					documentation = cmp.config.window.bordered({
+						max_width = 80,
+						max_height = 30,
+					}),
+				},
 				snippet = {
 					expand = function(args)
 						vim.fn["UltiSnips#anon"](args.body)
