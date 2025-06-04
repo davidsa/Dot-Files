@@ -101,7 +101,7 @@ function gcm
 end
 
 function dc
-  docker-compose $argv
+  docker-compose -f docker-compose-arm64.yml $argv
 end
 
 function drm
