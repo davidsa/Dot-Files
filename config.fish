@@ -92,6 +92,41 @@ function pj
     end
 end
 
+function trr-pj
+    # Use fzf to select a directory from ~/workspace excluding node_modules
+    set dir ~/workspace/trr-compose
+    set name (find ~/workspace/trr-compose/apps -type d -not -path "*/node_modules/*" -maxdepth 1 | fzf)
+
+    # Extract directory name as session name (for simplicity)
+    set session_name (basename $name)
+
+    # Check if you are already inside a tmux session
+    if test -n "$TMUX"
+        # Inside tmux: check if session exists
+        tmux has-session -t $session_name 2>/dev/null
+        if test $status -eq 0
+            # Switch to existing session if it exists
+            tmux switch-client -t $session_name
+        else
+            # Create a new session within the current tmux server
+            tmux new-session -d -s $session_name -c $name
+            tmux new-window -t $session_name: -c $dir 
+            tmux switch-client -t $session_name
+        end
+    else
+        # Outside tmux: check if session exists
+        tmux has-session -t $session_name 2>/dev/null
+        if test $status -eq 0
+            # Attach to existing session if it exists
+            tmux attach-session -t $session_name
+        else
+            # Create new tmux session and start in the selected directory
+            tmux new-session -d -s $session_name -c $name
+            tmux new-window -t $session_name: -c $dir 
+        end
+    end
+end
+
 function t
   tmux $argv
 end
